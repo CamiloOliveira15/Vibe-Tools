@@ -1,36 +1,36 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibe Tools - Standalone</title>
+  <title>Vibe - Standalone</title>
   <style>
     :root {
-      --bg: #f4efe5;
-      --card: #fffaf2;
-      --text: #1f2937;
-      --muted: #5b6470;
-      --line: #e2d4bb;
-      --brand: #0f766e;
-      --brand-2: #d97706;
-      --pill: #efe3cc;
-      --pill-active: #0f766e;
-      --pill-text-active: #f7fafc;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --brand: #4f46e5;
+      --brand-soft: rgba(79, 70, 229, 0.14);
+      --pill: #f1f5f9;
+      --pill-active: #0f172a;
+      --pill-text-active: #f8fafc;
+      --shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
     }
 
     body.dark {
-      --bg: #11141a;
-      --card: #1a1f29;
-      --text: #e6e9ee;
-      --muted: #9aa4b2;
-      --line: #2a3342;
-      --brand: #22c1b4;
-      --brand-2: #f59e0b;
-      --pill: #222b38;
-      --pill-active: #22c1b4;
-      --pill-text-active: #0f172a;
-      --shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+      --bg: #0a0a0c;
+      --card: #17181c;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --line: #2a2b30;
+      --brand: #6366f1;
+      --brand-soft: rgba(99, 102, 241, 0.18);
+      --pill: #1f2025;
+      --pill-active: #f4f4f5;
+      --pill-text-active: #0a0a0c;
+      --shadow: 0 14px 35px rgba(0, 0, 0, 0.38);
     }
 
     * { box-sizing: border-box; }
@@ -39,8 +39,8 @@
       margin: 0;
       color: var(--text);
       background:
-        radial-gradient(1200px 600px at -10% -10%, rgba(217, 119, 6, 0.22), transparent 60%),
-        radial-gradient(900px 500px at 110% -5%, rgba(15, 118, 110, 0.22), transparent 55%),
+        radial-gradient(1200px 560px at -8% -20%, rgba(99, 102, 241, 0.24), transparent 60%),
+        radial-gradient(900px 540px at 120% -20%, rgba(34, 197, 94, 0.14), transparent 60%),
         var(--bg);
       font-family: "Segoe UI Variable", "Trebuchet MS", "Candara", "Verdana", sans-serif;
       min-height: 100vh;
@@ -58,12 +58,12 @@
       z-index: 10;
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
-      background: color-mix(in oklab, var(--bg) 84%, transparent);
+      background: color-mix(in oklab, var(--bg) 88%, transparent);
     }
 
     .topgrid {
       display: grid;
-      grid-template-columns: 1fr minmax(240px, 520px) auto;
+      grid-template-columns: 1fr minmax(240px, 560px) auto;
       gap: 12px;
       align-items: center;
       padding: 14px 0;
@@ -71,19 +71,19 @@
 
     h1 {
       margin: 0;
-      font-size: 1.2rem;
-      letter-spacing: 0.2px;
+      font-size: 1.28rem;
+      letter-spacing: 0.1px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .dot {
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
-      background: linear-gradient(140deg, var(--brand), var(--brand-2));
-      box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 15%, transparent);
+      background: linear-gradient(140deg, var(--brand), #22d3ee);
+      box-shadow: 0 0 0 4px var(--brand-soft);
     }
 
     .search {
@@ -92,9 +92,11 @@
       gap: 8px;
       border: 1px solid var(--line);
       background: var(--card);
-      border-radius: 999px;
+      border-radius: 12px;
       padding: 0 12px;
-      min-height: 42px;
+      min-height: 44px;
+      color: var(--muted);
+      font-size: 0.86rem;
     }
 
     .search input {
@@ -117,21 +119,24 @@
       border: 1px solid var(--line);
       background: var(--card);
       color: var(--text);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 8px 11px;
       font: inherit;
       cursor: pointer;
+      transition: all 0.16s ease;
     }
 
-    button:hover, select:hover { filter: brightness(0.98); }
+    button:hover, select:hover {
+      filter: brightness(1.02);
+      border-color: color-mix(in oklab, var(--brand) 40%, var(--line));
+    }
 
     .btn-brand {
-      background: linear-gradient(120deg, var(--brand), color-mix(in oklab, var(--brand) 75%, #ffffff));
+      background: linear-gradient(120deg, var(--brand), #4f46e5);
       color: #fff;
-      border-color: color-mix(in oklab, var(--brand) 80%, #000);
+      border-color: color-mix(in oklab, var(--brand) 60%, #000);
+      box-shadow: 0 8px 18px color-mix(in oklab, var(--brand) 30%, transparent);
     }
-
-    body.dark .btn-brand { color: #0f172a; }
 
     .filters {
       display: flex;
@@ -147,7 +152,7 @@
       border: 1px solid var(--line);
       color: var(--muted);
       padding: 6px 12px;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 600;
     }
 
@@ -161,7 +166,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 14px 0;
+      margin: 20px 0 14px;
       color: var(--muted);
       font-size: 0.9rem;
     }
@@ -169,14 +174,14 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px;
+      border-radius: 18px;
+      padding: 16px;
       box-shadow: var(--shadow);
       display: grid;
       gap: 10px;
@@ -185,8 +190,9 @@
     }
 
     .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.18);
+      transform: translateY(-3px);
+      border-color: color-mix(in oklab, var(--brand) 35%, var(--line));
+      box-shadow: 0 20px 34px rgba(15, 23, 42, 0.2);
     }
 
     .row {
@@ -205,7 +211,21 @@
       letter-spacing: 0.4px;
       text-transform: uppercase;
       border: 1px solid var(--line);
-      background: color-mix(in oklab, var(--brand-2) 16%, transparent);
+      background: color-mix(in oklab, var(--brand) 12%, transparent);
+    }
+
+    .badge-prompt { color: #10b981; border-color: rgba(16, 185, 129, 0.25); background: rgba(16, 185, 129, 0.12); }
+    .badge-skill { color: #e879f9; border-color: rgba(232, 121, 249, 0.25); background: rgba(232, 121, 249, 0.12); }
+    .badge-snippet { color: #22d3ee; border-color: rgba(34, 211, 238, 0.25); background: rgba(34, 211, 238, 0.12); }
+    .badge-workflow { color: #f59e0b; border-color: rgba(245, 158, 11, 0.25); background: rgba(245, 158, 11, 0.12); }
+
+    .icon-btn {
+      width: 33px;
+      height: 33px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0;
+      border-radius: 10px;
     }
 
     .card h3 {
@@ -221,6 +241,7 @@
       line-height: 1.5;
       display: -webkit-box;
       -webkit-line-clamp: 3;
+      line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -237,14 +258,14 @@
       padding: 4px 8px;
       border-radius: 999px;
       color: var(--muted);
-      background: color-mix(in oklab, var(--card) 84%, #ffffff);
+      background: color-mix(in oklab, var(--card) 90%, #fff);
     }
 
     .empty {
       text-align: center;
       border: 1px dashed var(--line);
       background: var(--card);
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 32px 16px;
       color: var(--muted);
     }
@@ -263,23 +284,23 @@
     .modal.open { display: flex; }
 
     .panel {
-      width: min(900px, 95vw);
+      width: min(940px, 95vw);
       max-height: 90vh;
       overflow: auto;
-      border-radius: 18px;
+      border-radius: 20px;
       border: 1px solid var(--line);
       background: var(--card);
       box-shadow: var(--shadow);
-      padding: 16px;
+      padding: 18px;
     }
 
     .panel pre {
       white-space: pre-wrap;
       overflow-wrap: anywhere;
       border: 1px solid var(--line);
-      background: color-mix(in oklab, var(--card) 86%, #000 2%);
-      border-radius: 12px;
-      padding: 12px;
+      background: color-mix(in oklab, var(--card) 90%, #000 2%);
+      border-radius: 14px;
+      padding: 14px;
       margin: 0;
       font-size: 0.86rem;
       line-height: 1.55;
@@ -291,16 +312,17 @@
       .topgrid { grid-template-columns: 1fr; }
       .actions { justify-content: flex-start; }
       .meta-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .row.stack-sm { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
-<body>
+<body class="dark">
   <header class="topbar">
     <div class="wrap">
       <div class="topgrid">
-        <h1><span class="dot"></span> Vibe Tools - Standalone</h1>
+        <h1><span class="dot"></span> Vibe</h1>
         <label class="search" aria-label="Busca">
-          <span>Buscar:</span>
+          <span>Pesquisar</span>
           <input id="search" type="text" placeholder="Prompt, skill, snippet, tag..." />
         </label>
         <div class="actions">
@@ -324,7 +346,7 @@
   <main class="wrap">
     <div class="meta-row">
       <span id="resultCount"></span>
-      <span class="muted">Arquivo local, sem Node, sem backend</span>
+      <span class="muted">Standalone local: sem Node e sem build</span>
     </div>
     <section id="grid" class="grid"></section>
     <section id="empty" class="empty" hidden>Nenhum item encontrado com os filtros atuais.</section>
@@ -332,7 +354,7 @@
 
   <div id="modal" class="modal" role="dialog" aria-modal="true">
     <article class="panel">
-      <div class="row" style="margin-bottom: 12px;">
+      <div class="row stack-sm" style="margin-bottom: 12px;">
         <strong id="mTitle"></strong>
         <div class="row">
           <button id="copyContent" class="btn-brand">Copiar conteudo</button>
@@ -424,7 +446,7 @@
       tag: "Todas",
       onlyFav: false,
       currentId: null,
-      dark: false,
+      dark: true,
       favorites: JSON.parse(localStorage.getItem("vibe.favs") || "[]"),
     };
 
@@ -513,12 +535,13 @@
 
       filtered.forEach(item => {
         const fav = state.favorites.includes(item.id);
+        const badgeClass = `badge-${String(item.type || "").toLowerCase()}`;
         const card = document.createElement("article");
         card.className = "card";
         card.innerHTML = `
           <div class="row">
-            <span class="badge">${item.type}</span>
-            <button data-fav="${item.id}" title="Favoritar">${fav ? "★" : "☆"}</button>
+            <span class="badge ${badgeClass}">${item.type}</span>
+            <button data-fav="${item.id}" class="icon-btn" title="Favoritar">${fav ? "★" : "☆"}</button>
           </div>
           <h3>${escapeHtml(item.title)}</h3>
           <p class="desc">${escapeHtml(item.description)}</p>
