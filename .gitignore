@@ -6,3 +6,11 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Vercel
+.vercel/
+
+# Archives and dumps
+*.zip
+*.tar.gz
+*.rar

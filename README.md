@@ -1,20 +1,76 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Vibe Tools ⚡
 
-# Run and deploy your AI Studio app
+Hub interativo de recursos, prompts de sistema, snippets de código, skills e workflows desenhados para acelerar fluxos de trabalho com IA e **Vibe Coding**.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/a4c215de-666c-4ed1-bad7-f308f8591f7a
+## 🚀 Funcionalidades
 
-## Run Locally
+- **Catálogo de Recursos:** Prompts de sistema de engenharia sênior/staff, snippets de código (`.cursorrules`, auth, ORM), skills de code review e workflows de agentes (LangGraph, etc.).
+- **Filtros e Busca Inteligente:** Filtro rápido por tipo (Prompt, Snippet, Skill, Workflow), categorias e tags dinâmicas.
+- **Exportação do Projeto em ZIP:** Permite baixar o código-fonte compactado em `.zip` diretamente pelo navegador.
+- **Modo Standalone:** Inclui versão `vibe-standalone.html` em HTML/CSS/JS puro sem dependência de build.
+- **Gerenciador de Tags:** Criação, edição e exclusão de tags globais em tempo real.
+- **Modo Claro / Escuro:** Interface adaptada para ambos os temas.
 
-**Prerequisites:**  Node.js
+---
 
+## 🛠️ Tecnologias
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- **React 19**
+- **Vite**
+- **Tailwind CSS v4**
+- **Lucide Icons**
+- **Motion (Framer Motion)**
+- **JSZip**
+
+---
+
+## 💻 Como Rodar Localmente
+
+### Pré-requisitos
+- Node.js 18+ (recomendado Node 20+)
+- npm ou pnpm
+
+### Passos
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+2. Execute o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+   Acesse `http://localhost:3000` no navegador.
+
+3. Para verificar tipos (TypeScript):
+   ```bash
+   npm run lint
+   ```
+
+4. Para gerar a build de produção:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 🌐 Publicação na Vercel
+
+O projeto está 100% configurado para deploy instantâneo na Vercel (`vercel.json` incluso).
+
+### Opção 1: Via GitHub (Recomendado)
+1. Certifique-se de que as alterações estão comitadas no GitHub (`main`).
+2. Acesse [vercel.com](https://vercel.com) e clique em **"Add New Project"**.
+3. Selecione o repositório `Vibe-Tools`.
+4. A Vercel detectará automaticamente o preset **Vite**:
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+5. Clique em **Deploy**. A cada novo `git push`, a Vercel atualizará o site automaticamente!
+
+### Opção 2: Via Vercel CLI
+```bash
+npx vercel
+```
+Siga as instruções do terminal para vincular à sua conta e publicar.

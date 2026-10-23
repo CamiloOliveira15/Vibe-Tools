@@ -804,7 +804,12 @@ export default function App() {
       
       // Fetch all relevant source files using Vite's import.meta.glob
       const files = import.meta.glob([
-        '/**/*'
+        '/src/**/*',
+        '/index.html',
+        '/package.json',
+        '/tsconfig.json',
+        '/vite.config.ts',
+        '/README.md'
       ], { query: '?raw', import: 'default' });
 
       for (const path in files) {
